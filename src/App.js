@@ -1,7 +1,8 @@
 import React from 'react';
 import { Router, Route, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-
+import './App.css';
+import './utils/rem';
 import test from './pages/test/index';
 import test2 from './pages/test/index2';
 import KTabBar from './components/KTabBar';
@@ -57,10 +58,12 @@ class App extends React.Component {
                     key={ item.path }
                     path={ item.path }
                     render={ props => (
-                      <item.component
-                        { ...props }
-                        routes={ item.routes }
-                      />
+                      <div className="pageContent">
+                        <item.component
+                          { ...props }
+                          routes={ item.routes }
+                        />
+                      </div>
                     ) }
                   />
                 ))

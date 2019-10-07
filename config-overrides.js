@@ -1,4 +1,8 @@
-const { override, fixBabelImports, addLessLoader } = require('customize-cra');
+const { override, fixBabelImports, addLessLoader, addPostcssPlugins } = require('customize-cra');
+
+
+
+
 
 module.exports = override(
   fixBabelImports('import', {
@@ -10,5 +14,10 @@ module.exports = override(
     modifyVars: {
       '@primary-color': '#1DA57A',
     },
-  })
+  }),
+  addPostcssPlugins([require('postcss-pxtorem')({
+    rootValue: 16,
+    propList: ['*'],
+  })])
+
 );

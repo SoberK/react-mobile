@@ -15,7 +15,7 @@ class KTabBar extends React.Component {
     const { TabConfig } = this.props;
     const { selected } = this.state;
     return (
-      <div >
+      <div className="tab">
         <div>
           <TabBar
             unselectedTintColor="#949494"
