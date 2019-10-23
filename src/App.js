@@ -3,28 +3,10 @@ import { Router, Route, Redirect } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import './App.css';
 import './utils/rem';
-import test from './pages/test/index';
-import test2 from './pages/test/index2';
 import KTabBar from './components/KTabBar';
+import config from './router/config';
 
 const customHistory = createBrowserHistory();
-const config = [
-  {
-    name: 'test2',
-    path: '/test2',
-    component: test2,
-    meta: {
-      title: '测试2',
-    },
-  },
-  {
-    name: 'test',
-    path: '/test',
-    component: test,
-    meta: {
-      title: '测试',
-    },
-  }];
 
 
 class App extends React.Component {
@@ -33,15 +15,20 @@ class App extends React.Component {
       icon: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg',
       activeicon: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg',
       title: 'my',
+      url: '/test',
     },
     {
       icon: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg',
       activeicon: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg',
       title: 'my1',
+      url: '/test2',
+
     }, {
       icon: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg',
       activeicon: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg',
       title: 'my3',
+      url: '/test3',
+
     }];
     return (
       <div className="App">

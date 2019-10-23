@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TabBar } from 'antd-mobile';
 import './index.less';
+import { withRouter } from 'react-router-dom';
+import route from '../../router/config';
 
 class KTabBar extends React.Component {
   constructor(props) {
@@ -12,34 +14,41 @@ class KTabBar extends React.Component {
   }
 
   render() {
-    const { TabConfig } = this.props;
+    const { TabConfig, history } = this.props;
     const { selected } = this.state;
+    const arr = route.filter(e => e.path === history.location.pathname);
+    const { isTab } = arr[0];
+
     return (
       <div className="tab">
-        <div>
-          <TabBar
-            unselectedTintColor="#949494"
-            tintColor="#33A3F4"
-            barTintColor="white"
-          >
-            {
-                TabConfig.map((item) => (
-                  <TabBar.Item
-                    icon={ { uri: item.icon } }
-                    selectedIcon={ { uri: item.activeicon } }
-                    title={ item.title }
-                    key={ item.title }
-                    selected={ selected === item.title }
-                    onPress={ () => {
-                      this.setState({
-                        selected: item.title,
-                      });
-                    } }
-                  >
-                  </TabBar.Item>
-                ))
+        <div>{
+          isTab ? (
+            <TabBar
+              unselectedTintColor="#949494"
+              tintColor="#33A3F4"
+              barTintColor="white"
+            >
+              {
+              TabConfig.map((item) => (
+                <TabBar.Item
+                  icon={ { uri: item.icon } }
+                  selectedIcon={ { uri: item.activeicon } }
+                  title={ item.title }
+                  key={ item.title }
+                  selected={ selected === item.title }
+                  onPress={ () => {
+                    this.setState({
+                      selected: item.title,
+                    });
+                    history.push(item.url);
+                  } }
+                >
+                </TabBar.Item>
+              ))
               }
-          </TabBar>
+            </TabBar>
+          ) : null
+}
         </div>
       </div>
     );
@@ -47,8 +56,8 @@ class KTabBar extends React.Component {
 }
 
 KTabBar.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  TabConfig: PropTypes.array.isRequired,
+  TabConfig: PropTypes.arrayOf(PropTypes.object).isRequired,
+  history: PropTypes.object.isRequired,
 };
 
-export default KTabBar;
+export default withRouter(KTabBar);
