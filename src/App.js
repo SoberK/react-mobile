@@ -14,21 +14,30 @@ class App extends React.Component {
     const TabConfig = [{
       icon: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg',
       activeicon: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg',
-      title: 'my',
-      url: '/test',
+      title: '首页',
+      url: '/home',
     },
     {
       icon: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg',
       activeicon: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg',
-      title: 'my1',
-      url: '/test2',
+      title: '专题',
+      url: '/topic',
 
     }, {
       icon: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg',
       activeicon: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg',
-      title: 'my3',
-      url: '/test3',
-
+      title: '分类',
+      url: '/classes',
+    }, {
+      icon: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg',
+      activeicon: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg',
+      title: '购物车',
+      url: '/shopCar',
+    }, {
+      icon: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg',
+      activeicon: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg',
+      title: '我的',
+      url: '/my',
     }];
     return (
       <div className="App">
@@ -37,11 +46,12 @@ class App extends React.Component {
             <Route
               exact
               path="/"
-              render={ () => (<Redirect to="/test"/>) }
+              render={ () => (<Redirect to="/home"/>) }
             />
             {
                 config.map((item) => (
                   <Route
+                    exact
                     key={ item.path }
                     path={ item.path }
                     render={ props => (

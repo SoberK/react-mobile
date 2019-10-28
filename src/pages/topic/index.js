@@ -1,11 +1,11 @@
 import React from 'react';
-class Test extends React.Component {
+
+export default class topic extends React.Component {
   render() {
     return (
       <div>
-                2222
+        topic
       </div>
     );
   }
 }
-export default Test;

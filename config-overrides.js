@@ -1,9 +1,6 @@
 const { override, fixBabelImports, addLessLoader, addPostcssPlugins } = require('customize-cra');
 
 
-
-
-
 module.exports = override(
   fixBabelImports('import', {
     libraryName: 'antd-mobile',

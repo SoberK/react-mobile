@@ -1,42 +1,52 @@
-import test2 from '../pages/test/index2';
-import test from '../pages/test';
-import test3 from '../pages/test/index3';
-import test4 from '../pages/test/index4';
+import home from '../pages/home/index';
+import topic from '../pages/topic/index';
+import classes from '../pages/classes/index';
+import shopCar from '../pages/shopCar/index';
+import my from '../pages/my/index';
 
 export default [
   {
-    name: 'test2',
-    path: '/test2',
-    component: test2,
+    name: 'home',
+    path: '/home',
+    component: home,
     isTab: true,
     meta: {
-      title: '测试1',
+      title: '首页',
     },
   },
   {
-    name: 'test',
-    path: '/test',
-    component: test,
+    name: 'topic',
+    path: '/topic',
+    component: topic,
     isTab: true,
     meta: {
-      title: '测试2',
+      title: '专题',
     },
   },
   {
-    name: 'test3',
-    path: '/test3',
+    name: 'classes',
+    path: '/classes',
+    component: classes,
     isTab: true,
-    component: test3,
     meta: {
-      title: '测试3',
+      title: '分类',
     },
   },
   {
-    name: 'test4',
-    path: '/test4',
-    component: test4,
-    isTab: false,
+    name: 'shopCar',
+    path: '/shopCar',
+    component: shopCar,
+    isTab: true,
     meta: {
-      title: '测试4',
+      title: '购物车',
+    },
+  },
+  {
+    name: 'my',
+    path: '/my',
+    component: my,
+    isTab: true,
+    meta: {
+      title: '我的',
     },
   }];

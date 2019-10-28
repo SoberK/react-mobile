@@ -1,12 +1,11 @@
 import React from 'react';
 
-class Test4 extends React.Component {
+export default class my extends React.Component {
   render() {
     return (
       <div>
-                4444
+                my
       </div>
     );
   }
 }
-export default Test4;

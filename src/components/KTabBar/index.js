@@ -17,7 +17,11 @@ class KTabBar extends React.Component {
     const { TabConfig, history } = this.props;
     const { selected } = this.state;
     const arr = route.filter(e => e.path === history.location.pathname);
-    const { isTab } = arr[0];
+    let isTab = false;
+    if (arr.length > 0) {
+      isTab = arr[0].isTab;
+    }
+
 
     return (
       <div className="tab">
@@ -57,7 +61,7 @@ class KTabBar extends React.Component {
 
 KTabBar.propTypes = {
   TabConfig: PropTypes.arrayOf(PropTypes.object).isRequired,
-  history: PropTypes.object.isRequired,
+  history: PropTypes.objectOf.isRequired,
 };
 
 export default withRouter(KTabBar);
