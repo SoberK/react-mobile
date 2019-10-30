@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TabBar } from 'antd-mobile';
-import './index.less';
 import { withRouter } from 'react-router-dom';
+import style from './index.module.less';
 import route from '../../router/config';
 
 class KTabBar extends React.Component {
@@ -24,7 +24,7 @@ class KTabBar extends React.Component {
 
 
     return (
-      <div className="tab">
+      <div className={ style.tab }>
         <div>{
           isTab ? (
             <TabBar
@@ -61,7 +61,8 @@ class KTabBar extends React.Component {
 
 KTabBar.propTypes = {
   TabConfig: PropTypes.arrayOf(PropTypes.object).isRequired,
-  history: PropTypes.objectOf.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  history: PropTypes.object.isRequired,
 };
 
 export default withRouter(KTabBar);

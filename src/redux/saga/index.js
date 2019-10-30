@@ -1,8 +1,8 @@
-import { all, fork } from 'redux-saga/effects';
-import demos from './demo';
+import { fork, all } from 'redux-saga/effects';
+import home from './home';
 
 export default function* root() {
   yield all([
-    fork(demos),
+    fork(home),
   ]);
 }

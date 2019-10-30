@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { demo } from './demo';
+import home from './home';
 
-
-export default combineReducers({ demo });;
+const combineReduce = combineReducers({ home });
+export default combineReduce;

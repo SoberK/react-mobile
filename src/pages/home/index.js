@@ -1,28 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import Swiper from './components/swiper';
-import * as demo from '../../redux/action/demo';
+import * as home from '../../redux/action/home';
 
 class Home extends React.Component {
-  demo = () => {
-    const { ac: { getData }, count } = this.props;
-    getData();
+  // eslint-disable-next-line react/no-deprecated
+  componentDidMount() {
+    const { action: { GET_DATA_REQUEST_ACTION } } = this.props;
+    GET_DATA_REQUEST_ACTION();
   }
 
   render() {
+    const { data: { banner } } = this.props;
+
     return (
       <div>
-        {/* <Swiper/> */}
-        <button onClick={ this.demo.bind(this) } >213123</button>
+        <Swiper banner={ banner }/>
       </div>
     );
   }
 }
-const mapStateToProps = (state, props) => ({
-  ...state.demo,
+
+Home.propTypes = {
+  action: PropTypes.objectOf(PropTypes.func).isRequired,
+  data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+};
+Home.defaultProps = {
+  data: {},
+};
+
+const mapStateToProps = (state) => ({
+  ...state.home,
 });
+
 const mapDispatchToProps = dispatch => ({
-  ac: bindActionCreators(demo, dispatch),
+  action: bindActionCreators(home, dispatch),
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

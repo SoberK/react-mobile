@@ -24,7 +24,7 @@
     "redux-saga": "^1.1.1",
     "sass-loader": "^8.0.0"
   },
-  "proxy": "http://www.kuaidi100.com",
+  "proxy": "http://202.96.155.121:8888",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",

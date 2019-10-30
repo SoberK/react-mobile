@@ -11,6 +11,7 @@ module.exports = override(
     modifyVars: {
       '@primary-color': '#1DA57A',
     },
+    localIdentName: '[path][name]-[local]',
   }),
   addPostcssPlugins([require('postcss-pxtorem')({
     rootValue: 16,
