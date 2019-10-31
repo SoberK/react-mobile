@@ -4,6 +4,12 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Swiper from './components/swiper';
 import * as home from '../../redux/action/home';
+import Channel from './components/channel';
+import BrandList from './components/brandList';
+import NewGoodsList from './components/newGoodsList';
+import HotGoodsList from './components/hotGoodsList';
+import SwiperHorizen from './components/swiperHorizen';
+import CategoryList from './components/categoryList';
 
 class Home extends React.Component {
   // eslint-disable-next-line react/no-deprecated
@@ -13,11 +19,16 @@ class Home extends React.Component {
   }
 
   render() {
-    const { data: { banner } } = this.props;
-
+    const { data: { banner, channel, brandList, newGoodsList, hotGoodsList, topicList, categoryList } } = this.props;
     return (
-      <div>
+      <div style={ { paddingBottom: '20px' } }>
         <Swiper banner={ banner }/>
+        <Channel channel={ channel }/>
+        <BrandList brandList={ brandList }/>
+        <NewGoodsList newGoodsList={ newGoodsList }/>
+        <HotGoodsList hotGoodsList={ hotGoodsList }/>
+        <SwiperHorizen banner={ topicList }/>
+        <CategoryList newGoodsList={ categoryList }/>
       </div>
     );
   }
