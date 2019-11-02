@@ -10,7 +10,7 @@ const NewGoodsList = ({ newGoodsList }) => (
     <div className={ style.newGoodsListBox }>
       {
           newGoodsList.map(e => (
-            <div className={ style.list } key={ e.id }>
+            <div className={ style.list } key={ e.id * Math.random() }>
               <div className={ style.listimg }>
                 <KLazyLoad url={ e.list_pic_url }/>
               </div>

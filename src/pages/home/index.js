@@ -19,7 +19,8 @@ class Home extends React.Component {
   }
 
   render() {
-    const { data: { banner, channel, brandList, newGoodsList, hotGoodsList, topicList, categoryList } } = this.props;
+    const { data: { banner, channel, brandList,
+      newGoodsList, hotGoodsList, topicList, categoryList } } = this.props;
     return (
       <div style={ { paddingBottom: '20px' } }>
         <Swiper banner={ banner }/>

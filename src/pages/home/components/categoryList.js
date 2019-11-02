@@ -7,12 +7,12 @@ import KLazyLoad from '../../../components/KLazyLoad';
 const NewGoodsList = ({ newGoodsList }) => (
   <div className={ style.newGoodsList }>
     { newGoodsList.map(el => (
-      <div>
+      <div key={ el.id }>
         <p className={ style.title }>{el.name}</p>
         <div className={ style.newGoodsListBox }>
           {
                       el.goodsList.map(e => (
-                        <div className={ style.list } key={ e.id } >
+                        <div className={ style.list } key={ e.id * Math.random() } >
                           <div className={ style.listimg }>
                             <KLazyLoad url={ e.list_pic_url }/>
                           </div>
